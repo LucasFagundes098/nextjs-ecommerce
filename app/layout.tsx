@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "./(components)/navbar";
-
 import { Ysabeau_Infant } from "next/font/google";
+
+// * components
+import Navbar from "./(components)/navbar";
+import { ReduxProvider } from "./Redux/provider";
 
 const ysabeau = Ysabeau_Infant({ subsets: ["latin"] });
 
@@ -20,8 +21,10 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={ysabeau.className}>
-        <Navbar />
-        {children}
+        <ReduxProvider>
+          <Navbar />
+          {children}
+        </ReduxProvider>
       </body>
     </html>
   );

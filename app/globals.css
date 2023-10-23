@@ -96,30 +96,30 @@ p > a {
 
 /* nav styles START */
 nav {
-  @apply pb-4
+  @apply pb-2
       border-b-2 border-gray-200
-      flex items-center gap-5 
+      flex items-center gap-4 
       my-10 mx-auto 
       max-w-5xl;
 }
-nav div {
-  @apply flex
-  absolute
-  right-0
-  mr-32
-  items-baseline
-  w-1/5
-  gap-5;
+nav .navbar-search {
+  display: flex;
+  position: absolute;
+  right: 0;
+  margin-right: 8rem;
+  align-items: baseline;
+  width: 20%;
+  gap: 1.25rem;
 }
 nav a,
 nav span {
-  @apply text-gray-500;
+  color: #a0aec0;
 }
 nav a:hover {
-  @apply text-black;
+  color: #000;
 }
 main nav {
-  @apply border-0;
+  border: none;
 }
 
 /* ? Product ? */

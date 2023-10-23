@@ -1,14 +1,15 @@
 import Link from "next/link";
 import SearchInput from "./searchInput";
+import { HoverCardDemo } from "./hoverCard";
 
 export default function navbar() {
   return (
     <nav>
-      <h1>Selected</h1>
+      <HoverCardDemo />
       <Link href="/">Home</Link>
       <Link href="/testing">Testing</Link>
 
-      <div>
+      <div className="navbar-search">
         <SearchInput />
         <Link href="/cart">Cart</Link>
       </div>
