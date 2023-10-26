@@ -4,7 +4,7 @@ import { Ysabeau_Infant } from "next/font/google";
 
 // * components
 import Navbar from "./(components)/navbar";
-import { ReduxProvider } from "./Redux/provider";
+import { Toaster } from "@/components/ui/toaster";
 
 const ysabeau = Ysabeau_Infant({ subsets: ["latin"] });
 
@@ -21,10 +21,9 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={ysabeau.className}>
-        <ReduxProvider>
-          <Navbar />
-          {children}
-        </ReduxProvider>
+        <Navbar />
+        {children}
+        <Toaster/>
       </body>
     </html>
   );

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SearchInput from "./searchInput";
 import { HoverCardDemo } from "./hoverCard";
+import SheetDemo from '../(components)/cartButton'
 
 export default function navbar() {
   return (
@@ -11,7 +12,7 @@ export default function navbar() {
 
       <div className="navbar-search">
         <SearchInput />
-        <Link href="/cart">Cart</Link>
+        <SheetDemo/>
       </div>
     </nav>
   );

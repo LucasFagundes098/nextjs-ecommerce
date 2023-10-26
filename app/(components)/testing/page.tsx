@@ -1,7 +1,31 @@
-export default function Testing() {
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
+import { Toaster } from "@/components/ui/toaster";
+
+const page = () => {
+  const { toast } = useToast();
+
+  function handleButtonClick() {
+    toast({
+      title: "Product has been added to cart",
+      description: "Check your cart",
+    });
+  }
+
   return (
     <main>
-      <h1>Testing</h1>
+      Enter
+      <Button
+        onClick={() => {
+          handleButtonClick();
+        }}
+      >
+        Buy Now
+      </Button>
     </main>
   );
-}
+};
+
+export default page;

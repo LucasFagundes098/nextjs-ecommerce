@@ -13,6 +13,8 @@ import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import productImage from "../../images/product-image.jpg";
 import Link from "next/link";
+import { useCart } from "@/app/zustand/store";
+import { useToast } from "@/components/ui/use-toast";
 
 // * UI
 import {
@@ -29,7 +31,7 @@ async function fetchDataFromFirestore() {
 
   const data: Product[] = [];
   querySnapshot.forEach((doc) => {
-    data.push({ id: doc.id, ...doc.data() } as Product);
+    data.push({ id: doc.id, ...doc.data() } as unknown as Product);
   });
 
   return data;
@@ -62,6 +64,8 @@ export default function SearchPage() {
   const search = searchParams.get("q");
   const productArray = dbProduct || [];
   const product = findProductsBySearchTerm(search || "", productArray);
+  const cart = useCart();
+  const { toast } = useToast();
 
   useEffect(() => {
     async function fetchData() {
@@ -78,6 +82,14 @@ export default function SearchPage() {
       </main>
     );
   }
+  
+  const handleButtonClick = (product: Product) => {
+    toast({
+      title: "Product has been added to cart",
+      description: "Check your cart",
+    });
+    cart.addItem(product);
+  };
 
   return (
     <main className="product-page">
@@ -107,13 +119,14 @@ export default function SearchPage() {
               </CardHeader>
 
               <CardFooter className="flex justify-end">
-                <Button>Buy Now</Button>
+                <Button onClick={() => handleButtonClick(product)}>
+                  Buy Now
+                </Button>
               </CardFooter>
             </Card>
           </div>
         );
       })}
-
     </main>
   );
 }
