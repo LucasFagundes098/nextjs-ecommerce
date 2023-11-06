@@ -39,16 +39,20 @@ async function fetchDataFromFirestore() {
 
 function findProductsBySearchTerm(searchTerm: string, productList: Product[]) {
   const searchResults = productList.filter((product) => {
-    const normalizedProductName = product.name
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase();
+    if (product.name) {
+      const normalizedProductName = product.name
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase();
 
-    return normalizedProductName.includes(searchTerm);
+      return normalizedProductName.includes(searchTerm.toLowerCase());
+    }
+    return false;
   });
 
   return searchResults;
 }
+
 
 function isProductEmpty(product: Product[]) {
   return (

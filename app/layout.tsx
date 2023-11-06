@@ -5,6 +5,7 @@ import { Ysabeau_Infant } from "next/font/google";
 // * components
 import Navbar from "./(components)/navbar";
 import { Toaster } from "@/components/ui/toaster";
+// import Footer from "./(components)/footer";
 
 const ysabeau = Ysabeau_Infant({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Toaster/>
+        {/* <Footer /> */}
       </body>
     </html>
   );

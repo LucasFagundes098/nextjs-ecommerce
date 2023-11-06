@@ -87,7 +87,7 @@ h2 {
 main {
   @apply max-w-6xl my-12 mx-auto px-20;
 }
-main > h2 {
+main, footer > h2 {
   @apply mb-4 pb-2 text-base;
 }
 p > a {
@@ -159,3 +159,24 @@ main nav {
   width: 13rem;
 }
 /* ? search input END ? */
+
+/* ? Footer ? */
+/* .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #acaaaa;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  z-index: 100;
+} */
+
+footer {
+  @apply pb-2
+  border-t-2 border-gray-200
+  flex items-center gap-4 
+  my-10 mx-auto 
+  max-w-5xl;
+}
