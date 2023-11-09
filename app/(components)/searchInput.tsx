@@ -1,7 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRouter, useState, Input } from "@/app/utils/utils";
 
 function removeAccent(str: string) {
   const normalizedTerm = str
@@ -30,7 +29,7 @@ export default function searchInput() {
   return (
     <>
       <form onSubmit={onSearch} className="searchInput">
-        <input
+        <Input
           type="text"
           placeholder="What are you looking for ?"
           value={searchTerm}

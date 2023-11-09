@@ -1,41 +1,26 @@
 "use client";
 
-// * Firebase
-import { collection, getDocs } from "firebase/firestore/lite";
-import { useState, useEffect } from "react";
-import { db } from "../../firebase/firebase-config";
-
 // * Types
 import { Product } from "@/app/types/types";
 
-// * Hooks
-import { useSearchParams } from "next/navigation";
-import Image from "next/image";
-import productImage from "../../images/product-image.jpg";
-import Link from "next/link";
-import { useCart } from "@/app/zustand/store";
-import { useToast } from "@/components/ui/use-toast";
-
-// * UI
 import {
+  useState,
+  useEffect,
+  useSearchParams,
+  Image,
+  Link,
+  useCart,
+  useToast,
+  fetchAllData,
+  isProductEmpty,
+  productImage,
   Card,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-
-async function fetchDataFromFirestore() {
-  const querySnapshot = await getDocs(collection(db, "product"));
-
-  const data: Product[] = [];
-  querySnapshot.forEach((doc) => {
-    data.push({ id: doc.id, ...doc.data() } as unknown as Product);
-  });
-
-  return data;
-}
+  Button,
+} from "@/app/utils/utils";
 
 function findProductsBySearchTerm(searchTerm: string, productList: Product[]) {
   const searchResults = productList.filter((product) => {
@@ -53,27 +38,16 @@ function findProductsBySearchTerm(searchTerm: string, productList: Product[]) {
   return searchResults;
 }
 
-
-function isProductEmpty(product: Product[]) {
-  return (
-    product === null ||
-    product === undefined ||
-    (Array.isArray(product) && product.length === 0)
-  );
-}
-
 export default function SearchPage() {
   const [dbProduct, setDbProduct] = useState<Product[]>([]);
-  const searchParams = useSearchParams();
-  const search = searchParams.get("q");
-  const productArray = dbProduct || [];
-  const product = findProductsBySearchTerm(search || "", productArray);
+  const searchParams = useSearchParams().get("q");
+  const product = findProductsBySearchTerm(searchParams || "", dbProduct);
   const cart = useCart();
   const { toast } = useToast();
 
   useEffect(() => {
     async function fetchData() {
-      const data = await fetchDataFromFirestore();
+      const data = await fetchAllData();
       setDbProduct(data);
     }
     fetchData();
@@ -86,7 +60,7 @@ export default function SearchPage() {
       </main>
     );
   }
-  
+
   const handleButtonClick = (product: Product) => {
     toast({
       title: "Product has been added to cart",

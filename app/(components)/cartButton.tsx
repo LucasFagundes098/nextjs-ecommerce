@@ -1,8 +1,8 @@
 "use client";
 
-// * UI
-import { Button } from "@/components/ui/button";
 import {
+  useCart,
+  Button,
   Sheet,
   SheetClose,
   SheetContent,
@@ -11,12 +11,11 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-
-// * Imports
-import { useCart } from "../zustand/store";
+  ScrollArea,
+  Alert,
+  AlertDescription,
+  AlertTitle,
+} from "@/app/utils/utils";
 
 export default function SheetDemo() {
   const cart = useCart();
@@ -29,7 +28,7 @@ export default function SheetDemo() {
     // * Cart products
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline">Cart</Button>
+        <Button>Cart</Button>
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>

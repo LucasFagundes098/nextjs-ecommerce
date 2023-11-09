@@ -87,39 +87,44 @@ h2 {
 main {
   @apply max-w-6xl my-12 mx-auto px-20;
 }
-main, footer > h2 {
+
+@media (min-width: 667px) {
+  main {
+    max-width: 100%; 
+    margin: 0; 
+    padding: 1rem; 
+  }
+
+  .navbar-container {
+    @apply pb-4 mb-10 mt-10 mx-auto border-b-2 border-gray-300 flex max-w-screen-lg justify-between;
+  }
+
+  .search-container {
+    @apply flex items-center gap-4;
+  }
+}
+main,
+footer > h2 {
   @apply mb-4 pb-2 text-base;
 }
 p > a {
   @apply text-primary underline;
 }
 
-/* nav styles START */
-nav {
-  @apply pb-2
-      border-b-2 border-gray-200
-      flex items-center gap-4 
-      my-10 mx-auto 
-      max-w-5xl;
+/* ? nav styles START */
+.navbar-container {
+  @apply pb-4 mb-10 mt-10 mx-auto border-b-2 border-gray-300 flex max-w-screen-lg justify-between;
 }
-nav .navbar-search {
-  display: flex;
-  position: absolute;
-  right: 0;
-  margin-right: 8rem;
-  align-items: baseline;
-  width: 20%;
-  gap: 1.25rem;
+.search-container {
+  @apply flex items-center gap-4
 }
-nav a,
-nav span {
-  color: #a0aec0;
+
+/* ? search input START ? */
+.searchInput form {
+  @apply bg-opacity-20 rounded-md block mx-auto w-auto border 
 }
-nav a:hover {
-  color: #000;
-}
-main nav {
-  border: none;
+.searchInput input {
+  @apply block p-2 rounded-sm w-48 h-10
 }
 
 /* ? Product ? */
@@ -139,26 +144,6 @@ main nav {
   gap: 1em;
 }
 
-/* ? search input START ? */
-.searchInput form {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 0.375rem;
-  display: block;
-  margin: 0 auto;
-  width: fit-content;
-  width: 25%;
-  border: 2px solid;
-}
-.searchInput:hover {
-  border: 2px solid;
-}
-.searchInput input {
-  display: block;
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.125rem;
-  width: 13rem;
-}
-/* ? search input END ? */
 
 /* ? Footer ? */
 /* .footer {
@@ -180,3 +165,47 @@ footer {
   my-10 mx-auto 
   max-w-5xl;
 }
+
+.teste-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 6 / 2;
+  border: 1px solid black;
+  width: 80%;
+}
+
+.div2 {
+  grid-area: 1 / 2 / 6 / 2;
+  /* border-radius: 2em; */
+  height: 30em;
+  width: 25em;
+  overflow: hidden;
+  border: 1px solid #fff;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.product-image-main {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.div3 {
+  grid-area: 1 / 4 / 6 / 6;
+}
+
+.justify-text {
+  text-align: justify;
+  line-height: 1.5;
+  hyphens: auto;
+  text-justify: inter-word;
+  text-align-last: left;
+}
+
+
