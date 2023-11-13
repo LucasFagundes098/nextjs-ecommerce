@@ -1,5 +1,6 @@
 // * Types
 import { Product } from "@/app/types/types";
+import { CartState } from "../zustand/store";
 
 function isProductEmpty(product: Product[]) {
   return (
@@ -9,4 +10,12 @@ function isProductEmpty(product: Product[]) {
   );
 }
 
-export { isProductEmpty };
+function handleAddToCart(product: Product , cart : CartState, toast : any) {
+  toast({
+    title: "Product has been added to cart",
+    description: "Check your cart",
+  });
+  cart.addItem(product);
+}
+
+export { isProductEmpty, handleAddToCart };

@@ -15,13 +15,23 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
+  Link,
 } from "@/app/utils/utils";
+
+import { Product } from "@/app/types/types";
 
 export default function SheetDemo() {
   const cart = useCart();
 
   const handleRemoveFromCart = (productId: number) => {
     cart.removeItem(productId);
+  };
+
+  const handleAddQuantity = (product: Product) => {
+    cart.addQuantityProduct(product);
+  };
+  const handleRemoveQuantity = (product: Product) => {
+    cart.removeQuantityProduct(product);
   };
 
   return (
@@ -53,7 +63,11 @@ export default function SheetDemo() {
                 <AlertDescription>
                   R$ {product.price * product.quantity}
                 </AlertDescription>
-                <AlertDescription>qty. {product.quantity}</AlertDescription>
+                <AlertDescription>
+                  qty. {product.quantity}
+                  <Button className="add-quantity-card" onClick={() => handleRemoveQuantity(product)}>-</Button>
+                  <Button className="add-quantity-card" onClick={() => handleAddQuantity(product)}>+</Button>
+                </AlertDescription>
                 <Button
                   onClick={() => handleRemoveFromCart(product.id)}
                   className="h-8 mt-3"
@@ -69,6 +83,9 @@ export default function SheetDemo() {
           <SheetClose asChild>
             <Button type="submit">Go back to products</Button>
           </SheetClose>
+          <Link href={"/checkout"}>
+            <Button>Finish Order</Button>
+          </Link>
         </SheetFooter>
       </SheetContent>
     </Sheet>

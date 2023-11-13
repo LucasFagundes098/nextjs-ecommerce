@@ -1,10 +1,12 @@
 // * Types
 import { Product } from "@/app/types/types";
 import React, { useEffect, useState } from "react";
-import { getProductPage, Image, productImage } from "@/app/utils/utils";
+import { getProductPage, Image, productImage, Button, handleAddToCart, useCart, useToast } from "@/app/utils/utils";
 
 function productDetails({ id }: { id: number }) {
   const [product, setProduct] = useState<Product | undefined>(undefined);
+  const cart = useCart()
+  const { toast } = useToast();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,9 +25,37 @@ function productDetails({ id }: { id: number }) {
   return (
     <>
       {product ? (
-        <main className="teste-container">
-          <div className="div1"></div>
-          <div className="div2">
+        <main className="productDetail-container">
+          <div className="productDetail-div1">
+            <div className="flex-1 mb-3">
+            <Image
+              src={productImage}
+              width={500}
+              height={500}
+              alt="Picture of the author"
+              className="product-image-main"
+            />
+            </div>
+            <div className="flex-1 mb-3">
+            <Image
+              src={productImage}
+              width={500}
+              height={500}
+              alt="Picture of the author"
+              className="product-image-main"
+            />
+            </div>
+            <div className="flex-1 mb-3">
+            <Image
+              src={productImage}
+              width={500}
+              height={500}
+              alt="Picture of the author"
+              className="product-image-main"
+            />
+            </div>
+          </div>
+          <div className="productDetail-div2">
             <Image
               src={productImage}
               width={500}
@@ -34,11 +64,11 @@ function productDetails({ id }: { id: number }) {
               className="product-image-main"
             />
           </div>
-          <div className="div3">
+          <div className="productDetail-div3">
             <h2>{product.name}</h2>
-            <p className="justify-text">{product.content}</p>
-            <p className="justify-text">{product.content}</p>
-            <p>{product.price}</p>
+            <p className="justify-text my-2">{product.content}</p>
+            <h2 className="my-2">R${product.price}</h2>
+            <Button onClick={()=> handleAddToCart(product, cart, toast)}>Add to cart</Button>
           </div>
         </main>
       ) : (

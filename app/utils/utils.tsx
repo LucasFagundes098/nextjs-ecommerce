@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { useCart } from "@/app/zustand/store";
 import { useToast } from "@/components/ui/use-toast";
 import { fetchAllData, getProductPage } from "../firebase/firebase-config";
-import { isProductEmpty } from "@/app/common/commons";
+import { isProductEmpty, handleAddToCart } from "@/app/common/commons";
 import productImage from "../images/product-image.jpg";
 import {
   Card,
@@ -77,5 +77,6 @@ export {
   CalendarIcon,
   useRouter,
   Input,
-  getProductPage
+  getProductPage,
+  handleAddToCart
 };
