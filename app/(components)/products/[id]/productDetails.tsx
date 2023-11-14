@@ -3,7 +3,7 @@ import { Product } from "@/app/types/types";
 import React, { useEffect, useState } from "react";
 import { getProductPage, Image, productImage, Button, handleAddToCart, useCart, useToast } from "@/app/utils/utils";
 
-function productDetails({ id }: { id: number }) {
+function ProductDetails({ id }: { id: number }) {
   const [product, setProduct] = useState<Product | undefined>(undefined);
   const cart = useCart()
   const { toast } = useToast();
@@ -78,4 +78,4 @@ function productDetails({ id }: { id: number }) {
   );
 }
 
-export default productDetails;
+export default ProductDetails;

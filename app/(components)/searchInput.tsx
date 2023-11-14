@@ -12,7 +12,7 @@ function removeAccent(str: string) {
 
   return encodedTerm;
 }
-export default function searchInput() {
+export default function SearchInput() {
   const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
 
