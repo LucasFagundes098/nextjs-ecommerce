@@ -65,8 +65,18 @@ export default function SheetDemo() {
                 </AlertDescription>
                 <AlertDescription>
                   qty. {product.quantity}
-                  <Button className="add-quantity-card" onClick={() => handleRemoveQuantity(product)}>-</Button>
-                  <Button className="add-quantity-card" onClick={() => handleAddQuantity(product)}>+</Button>
+                  <Button
+                    className="add-quantity-card"
+                    onClick={() => handleRemoveQuantity(product)}
+                  >
+                    -
+                  </Button>
+                  <Button
+                    className="add-quantity-card"
+                    onClick={() => handleAddQuantity(product)}
+                  >
+                    +
+                  </Button>
                 </AlertDescription>
                 <Button
                   onClick={() => handleRemoveFromCart(product.id)}

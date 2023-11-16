@@ -78,5 +78,5 @@ export {
   useRouter,
   Input,
   getProductPage,
-  handleAddToCart
+  handleAddToCart,
 };

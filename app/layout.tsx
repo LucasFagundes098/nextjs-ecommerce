@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={ysabeau.className}>
         <Navbar />
         {children}
-        <Toaster/>
+        <Toaster />
         {/* <Footer /> */}
       </body>
     </html>

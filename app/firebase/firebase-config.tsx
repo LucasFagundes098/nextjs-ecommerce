@@ -44,5 +44,4 @@ async function getProductPage(id: number): Promise<Product | undefined> {
   }
 }
 
-
 export { fetchAllData, getProductPage };

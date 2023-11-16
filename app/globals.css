@@ -182,16 +182,3 @@ p > a {
 /* ! MOBILE ! */
 @media (max-width: 667px) {
 }
-
-/* ? Footer ? */
-/* .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #acaaaa;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-  z-index: 100;
-} */

@@ -10,7 +10,7 @@ function isProductEmpty(product: Product[]) {
   );
 }
 
-function handleAddToCart(product: Product , cart : CartState, toast : any) {
+function handleAddToCart(product: Product, cart: CartState, toast: any) {
   toast({
     title: "Product has been added to cart",
     description: "Check your cart",

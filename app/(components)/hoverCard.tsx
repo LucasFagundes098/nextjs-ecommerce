@@ -6,7 +6,7 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-  CalendarIcon
+  CalendarIcon,
 } from "@/app/utils/utils";
 
 export function HoverCardDemo() {
