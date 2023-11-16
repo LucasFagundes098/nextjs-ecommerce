@@ -37,3 +37,6 @@ Open http://localhost:3000 in your browser to see the result.
 
 ### Deployment on Vercel
 This project has been deployed on Vercel. For details on the deployment process, refer to the Next.js deployment documentation.
+
+Here is the deployed version of my application.
+[My application](https://nextjs-ecommerce-kkc19yyku-lucas-fagundes-de-oliveiras-projects.vercel.app)
