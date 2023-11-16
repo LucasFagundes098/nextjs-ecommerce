@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { Separator } from "@/components/ui/separator";
 import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { useCart } from "@/app/zustand/store";
@@ -79,4 +80,5 @@ export {
   Input,
   getProductPage,
   handleAddToCart,
+  Separator,
 };
